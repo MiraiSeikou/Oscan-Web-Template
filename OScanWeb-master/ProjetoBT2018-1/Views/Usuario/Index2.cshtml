@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProjetoBT2018_1.Models.Dominios.DominioMaquina>
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<div class="row" @*style="display:block*@ ; margin:auto; padding:0 25px 0 25px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-2" style="text-align:center; border: 1px solid gray;">
+            <img src="https://images.vexels.com/media/users/3/130080/isolated/preview/6861b47f0a614558b9c4a5ff8d7237a0-monitor-de-desktop-com--cone-do-cursor-by-vexels.png" style="width:90%; float:left;" />
+            <h2>@item.Nome</h2>
+            <p>@item.OSName</p>
+
+            <p>@Html.ActionLink("Acessar", "Maquina", "Maquina", new { @idMaquina = item.Id }, new { @class = "btn btn-default" })</p>
+        </div>
+    }
+</div>
+@*<h2>@item.Nome</h2>
+<p>@item.OSName</p>*@
+
+@*@section scripts{
+        @Scripts.Render("~/bundles/teste_bundle")
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                drawChart()
+            });
+
+        </script>
+
+    }*@
+

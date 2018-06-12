@@ -1,0 +1,74 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#formLogin {
+    width: 280px;
+    margin: 50px auto;
+}
+
+    #formLogin img {
+        display: block;
+        margin: auto;
+    }
+
+    #formLogin h1 {
+        text-align: center;
+    }
+
+#inputEmail {
+    border-radius: 5px 5px 0px 0px;
+    height: 45px;
+}
+
+#inputPassword {
+    border-radius: 0 0 5px 5px;
+    height: 45px;
+}
+
+#cadastrar {
+    display: block;
+    margin: 10px 0 10px 0;
+}
+
+#boxStatus, #boxLabelsDetalhe, #boxDetalheStatus {
+    margin-top: 1%;
+    padding: 0px;
+}
+
+#boxS_1, #boxS_2, #boxS_3 {
+    float:left;
+    padding:0px;
+    
+}
+
+#boxS_2, #boxS_3 {
+    clear:left;
+}
+
+#boxLabelsDetalhe {
+    background-color: aquamarine;
+    margin-left: 15px;
+}
+

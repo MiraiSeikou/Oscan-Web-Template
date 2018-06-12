@@ -1,0 +1,160 @@
+﻿@*using @model ProjetoBT2018_1.Models.Dominio.Usuario
+    }*@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OScan - Monitor de Recursos</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    @Styles.Render("~/OscanContent/plugins/font-awesome/css")
+    @Styles.Render("~/OscanContent/plugins/ionicons/css")
+    @Styles.Render("~/OscanContent/bootstrap/css")
+    @Styles.Render("~/OscanContent/dist/css")
+    @Styles.Render("~/OscanContent/dist/css/skins")
+
+</head>
+<body class="hold-transition skin-purple sidebar-mini  ">
+    <div class="wrapper">
+        <header class="main-header b">
+            <a href="@Url.Action("Index", "Usuario")" class="logo">
+                <span class="logo-mini"><b>O</b>S</span>
+                <span class="logo-lg"><b>OS</b>can</span>
+            </a>
+
+            @*Menu superior Statico*@
+
+            <nav class="navbar navbar-static-top " role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <div class="pull-left info">
+                        
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        <ul class="nav navbar-nav navbar-link" style="float:right;">
+                            <li>@Html.ActionLink("Sair", "Logout", "Home")</li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        @*Menu Superior canto esquerdo*@
+
+        <aside class="main-sidebar main-sidebar bg-black">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/OscanContent/dist/img/user.svg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Pesquisar">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
+
+
+                @*Menu Principal Lateral OScan*@
+                <ul class="sidebar-menu ">
+                    <li class="header">Menu</li>
+                    <li id="left-sidebar-menu-dashboard">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i> <span>Home</span>
+                        </a>
+                    </li>
+                    <li id="left-sidebar-menu-widgets">
+                        <a href="@Url.Action("Relatorio", "Maquina")">
+                            <i class="fa fa-th"></i> <span>Relatório</span>
+                        </a>
+                    </li>
+                    <li id="left-sidebar-menu-charts" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Gráficos</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-charts-chartjs"><a href="@Url.Action("Relatorio", "Maquina")"><i class="fa fa-circle-o"></i> CPU</a></li>
+                            <li id="left-sidebar-menu-charts-morris"><a href="@Url.Action("Relatorio", "Maquina")"><i class="fa fa-circle-o"></i> Processador</a></li>
+                            <li id="left-sidebar-menu-charts-flot"><a href="@Url.Action("Relatorio", "Maquina")"><i class="fa fa-circle-o"></i> Memoria</a></li>
+                            <li id="left-sidebar-menu-charts-inline"><a href="@Url.Action("Relatorio", "Maquina")"><i class="fa fa-circle-o"></i>Discos</a></li>
+                        </ul>
+                    </li>
+                    <li id="left-sidebar-menu-documentation">
+                        <a href="@Url.Action("Documentacao", "Home")">
+                            <i class="fa fa-book"></i>
+                            <span>Documentação OScan</span>
+                        </a>
+                    </li>
+                    <li class="header">Miraiseikou</li>
+                    <li><a href="@Url.Action("Contact", "Home")"><i class="fa fa-circle-o text-red"></i> <span>Contato</span></a></li>
+                    <li><a href="@Url.Action("About", "Home")"><i class="fa fa-circle-o text-yellow"></i> <span>Sobre</span></a></li>
+                    <li><a href="@Url.Action("Suporte", "Home")"><i class="fa fa-circle-o text-aqua"></i> <span>Suporte</span></a></li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                    @ViewBag.Title
+                    <small>@ViewBag.SubTitle</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i>@ViewBag.SubTitle</a></li>
+                    <li class="active">@ViewBag.Title</li>
+                </ol>
+            </section>
+            <section class="content">
+
+                @RenderBody()
+
+
+            </section>
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Bandtec </b> 02/2018
+            </div>
+            <strong>Copyrights | Miraiseikou |&copy; 2018 <a href="http://oscanwebapi.azurewebsites.net/">OScan</a>.</strong> All rights
+            reserved.
+        </footer>
+
+
+        <aside class="control-sidebar control-sidebar-dark">
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+        </aside>
+        <div class="control-sidebar-bg"></div>
+    </div>
+
+    @Scripts.Render("~/OscanContent/plugins/jquery/js")
+    @RenderSection("menu", required: false)
+    @Scripts.Render("~/OscanContent/bootstrap/js")
+    @Scripts.Render("~/OscanContent/plugins/slimscroll/js")
+    @Scripts.Render("~/OscanContent/plugins/fastclick/js")
+    @Scripts.Render("~/Scripts/Shared/_Layout")
+    @Scripts.Render("~/OscanContent/dist/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

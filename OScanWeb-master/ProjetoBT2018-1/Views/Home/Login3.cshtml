@@ -1,0 +1,65 @@
+﻿@model ProjetoBT2018_1.Models.Dominio.Usuario
+
+@{ 
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+
+        }
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<body style="display:block; margin:auto;">
+    @section topoLogin{
+        <div class="navbar navbar-inverse navbar-fixed-top"></div>
+    }
+
+    @using (Html.BeginForm("Login", "Home", "Post"))
+    {
+        <fieldset class="form-group" id="formLogin">
+            <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Entre com Login</h1>
+            <div>
+                @Html.TextBoxFor(model => model.Email, new { @id = "inputEmail", @class = "form-control", @placeholder = "Email", @autofocus = "", @required = "" })
+                @Html.TextBoxFor(model => model.Senha, new { @id = "inputPassword", @class = "form-control", @placeholder = "Password", @required = "", @type = "password", @value = ""})
+            </div>
+            <div id="cadastrar">
+                <label>
+                    ou @Html.ActionLink("Cadastre-se", "Cadastrar", "Home")
+                </label>
+                <label>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </label>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Logar" id="btnLogin"/>
+            </div>
+        </fieldset>
+    }
+</body>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
+
+@*<script language="javascript">
+    function ValidateUser() {
+        var email = $("#inputEmail").val();
+        var senha = $("#inputPassword").val();
+        var url = "/Home/ValidateUser";
+        $.ajax({
+            url: url,
+            data: { email: email, senha: senha },
+            cache: false,
+            type: "Post",
+            success: function (data) {
+                data == "1" ? alert("Deu Certo!") : alert("Deu Errado!");
+                $("#inputPassword").attr({ 'value': '' });
+            },
+            error: function (response) {
+                alert("error : " + response);
+            }
+        });
+    }
+</script>*@

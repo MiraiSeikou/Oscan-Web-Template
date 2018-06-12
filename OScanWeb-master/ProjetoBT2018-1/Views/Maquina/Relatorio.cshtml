@@ -1,0 +1,80 @@
+﻿@model ProjetoBT2018_1.Models.Dominios.Relatorio
+
+@{
+    ViewBag.Title = "Relatorio";
+}
+
+<h2>Relatorio</h2>
+<div style="width:80%; height: 20%;">
+        <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="542" height="228" style="display: block; width: 542px; height: 228px;"></canvas>
+    </div>
+
+
+<h2>Título da seção</h2>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Uso processador %</th>
+                <th>Memoria disponível Mb</th>
+                <th>Swap disponível Mb</th>
+                <th>Disco disponível Gb</th>
+                <th>Momento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 1; i < Model.Processador.Count(); i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@Model.Processador.ElementAt(i - 1)</td>
+                    <td>@Model.MemoriaRam.ElementAt(i - 1)</td>
+                    <td>@Model.MemoriaSwap.ElementAt(i - 1)</td>
+                    <td>@Model.Disco.ElementAt(i - 1)</td>
+                    <td>@Model.Momento.ElementAt(i - 1)</td>
+                </tr>
+                @*<tr>
+                        <td>@i</td>
+                        <td>@Math.Round(double.Parse(string.Format("{0:0.00}", Model.Processador.ElementAt(i-1)).Replace(',','.')))</td>
+                        <td>@Convert.ToString(Model.MemoriaRam.ElementAt(i-1)).Substring(0,3)</td>
+                        <td>@Convert.ToString(Model.MemoriaSwap.ElementAt(i-1)).Substring(0,3)</td>
+                        <td>@Convert.ToString(Model.Disco.ElementAt(i-1)).Substring(0,3)</td>
+                        <td>@Model.Momento.ElementAt(i-1)</td>
+                    </tr>*@
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script type="text/javascript">
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            datasets: [{
+                data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                lineTension: 0,
+                backgroundColor: 'transparent',
+                borderColor: '#007bff',
+                borderWidth: 4,
+                pointBackgroundColor: '#007bff'
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }],
+            },
+            legend: {
+                display: false,
+            }
+        }
+    });
+</script>
+

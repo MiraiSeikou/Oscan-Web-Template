@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProjetoBT2018_1.Models.Dominios.DominioMaquina> 
+@{
+    ViewBag.Title = "Teste Layout Pagina Inicial";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Home/Index/menu")
+}
+
+@*conteudo Pagina Principal OScan*@
+
+<div class="box box-primary ">
+    <div class="box-header with-border ">
+        <h3 class="box-title">Pagina de Inicio</h3>
+        <div class="box-tools pull-right">
+        </div>
+    </div>
+    <div class="box-body">
+        <p>Informações Iniciais sobre o Cliente OScan:</p>
+        Numero de maquinas cadastradas
+        assinatura
+        forma de pagamento
+    </div>
+</div>
+
+<div class="row" @*style="display:block*@ ; margin:auto; padding:0 25px 0 25px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-2" style="text-align:center; border: 1px solid gray;">
+            <img src="https://images.vexels.com/media/users/3/130080/isolated/preview/6861b47f0a614558b9c4a5ff8d7237a0-monitor-de-desktop-com--cone-do-cursor-by-vexels.png" style="width:90%; float:left;" />
+            <h2>@item.Nome</h2>
+            <p>@item.OSName</p>
+
+            <p>@Html.ActionLink("Acessar", "Maquina", "Maquina", new { @idMaquina = item.Id }, new { @class = "btn btn-default" })</p>
+        </div>
+
+    }
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/OscanContent/plugins/jquery-ui/js")
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+
+    @Scripts.Render("~/OscanContent/plugins/chartjs/js")
+    @Scripts.Render("~/OscanContent/plugins/jvectormap/js")
+    @Scripts.Render("~/OscanContent/plugins/sparkline/js")
+    @Scripts.Render("~/Scripts/Home/Index")
+}
+

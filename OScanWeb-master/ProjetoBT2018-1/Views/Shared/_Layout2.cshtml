@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+
+    @Styles.Render("~/OscanContent/plugins/font-awesome/css")
+    @Styles.Render("~/OscanContent/plugins/ionicons/css")
+    @Styles.Render("~/OscanContent/bootstrap/css")
+    @Styles.Render("~/OscanContent/dist/css")
+    @Styles.Render("~/OscanContent/dist/css/skins")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <br />
+    <br />
+
+    @if (IsSectionDefined("topoLogin"))
+    {
+        @RenderSection("topoLogin");
+    }
+    else
+    {
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Usuario", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-link" style="float:right;">
+                    <li>@Html.ActionLink("Sair", "Logout", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    }
+
+    <br />
+    <br />
+
+    @RenderBody()
+
+
+
+    <hr style="clear:right;" />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+    </footer>
+    @Scripts.Render("~/OscanContent/plugins/jquery/js")
+    @RenderSection("menu", required: false)
+    @Scripts.Render("~/OscanContent/bootstrap/js")
+    @Scripts.Render("~/OscanContent/plugins/slimscroll/js")
+    @Scripts.Render("~/OscanContent/plugins/fastclick/js")
+    @Scripts.Render("~/Scripts/Shared/_Layout2")
+    @Scripts.Render("~/OscanContent/dist/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

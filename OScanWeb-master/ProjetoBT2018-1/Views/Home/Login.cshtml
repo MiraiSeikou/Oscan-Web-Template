@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+
+    @model ProjetoBT2018_1.Models.Dominio.Usuario
+}
+
+
+
+@{
+    ViewBag.Title = "Login2";
+}
+@using (Html.BeginForm("Login", "Home", "Post"))
+{
+    <form id="form1" runat="server">
+        <!--header-->
+        <div class="header-w3l">
+            <h1>Oscan</h1>
+            <h1>Miraiseikou</h1>
+        </div>
+        <!--//header-->
+        <!--main-->
+        <div class="main-content-agile">
+            <div class="sub-main-w3">
+                <h2>Faça seu login ou Cadastre-se</h2>
+                <h6></h6>
+                <div class="navbar-right social-icons">
+                    <a href="https://www.facebook.com/Andremarcondesassis" class="one-w3ls"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                    <a href="#" class="two-w3ls"><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</a>
+                    <div class="clear"></div>
+                </div>
+                <h6>Insira seus dados Para Entrar</h6>
+                <p>
+
+
+                    <div class="form-control">
+                      
+                            @Html.TextBoxFor(model => model.Email, new { @id = "inputEmail", @class = "icon2", @placeholder = "Email", @autofocus = "", @required = "" })
+                            <br />
+                            <br />
+                            
+                            @Html.TextBoxFor(model => model.Senha, new { @id = "inputPassword", @class = "icon2", @placeholder = "Senha", @required = "", @type = "password", @value = "" })
+                        </div>
+                        <div id="cadastrar">
+                            
+                            <label>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            </label>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Logar" id="btnLogin" />
+                        </div>
+
+
+
+
+                        @*<Label ID="vldmessage2" runat="server" ForeColor="#34BF49"></Label>*@
+</p>
+                        
+                            <TextBox  placeholder="Email" name="mail" type="email" required="" />
+                        </div>
+                        <div class="icon2">
+                            <asp:TextBox ID="senhaL" runat="server" placeholder="Senha" name="Password" type="password" required="" />
+                            <br />
+                            <br />
+                        </div>
+
+
+                        <label class="anim">
+                            <input type="checkbox" class="checkbox" />
+                            <span>Lembrar</span>
+                            <label>
+                                ou @Html.ActionLink("Cadastre-se", "Cadastrar", "Home")
+                            </label>
+                            @*<a href="Cadastrar.aspx">Cadastrar</a>*@
+                        </label>
+                    @*<div class="clear"></div>
+                    <asp:Button ID="BotaoLogar" OnClick="Logar_Click" runat="server" Text="Entrar" />
+            </div>*@
+        </div>
+
+        <!--//main-->
+        <!--footer-->
+        <div class="footer">
+            <p>&copy; 2018 Miraiseikou | OScan | Bandtec Digital Scool</p>
+        </div>
+
+        <!--//footer-->
+        <!-- js -->
+        <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>>
+        <script src="js/jquery.vide.min.js"></script>
+        <!-- //js -->
+    </form>
+}
+
+    

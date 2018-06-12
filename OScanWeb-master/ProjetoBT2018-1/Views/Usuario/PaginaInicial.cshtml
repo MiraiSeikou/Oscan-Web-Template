@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Teste Pagina Inicial";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Home/Index/menu")
+}
+
+@*conteudo Pagina Principal OScan*@
+
+
+
+
+<div class="box box-primary ">
+    <div class="box-header with-border ">
+        <h3 class="box-title">Pagina de Inicio</h3>
+        <div class="box-tools pull-right">
+        </div>
+    </div>
+    <div class="box-body">
+        <p>Informações Iniciais sobre o Cliente OScan:</p>
+        Numero de maquinas cadastradas
+        assinatura
+        forma de pagamento
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/OscanContent/plugins/jquery-ui/js")
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+
+    @Scripts.Render("~/OscanContent/plugins/chartjs/js")
+    @Scripts.Render("~/OscanContent/plugins/jvectormap/js")
+    @Scripts.Render("~/OscanContent/plugins/sparkline/js")
+    @Scripts.Render("~/Scripts/Home/Index")
+}
